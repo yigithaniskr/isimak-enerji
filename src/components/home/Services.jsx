@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion'
-import { FaFire, FaSnowflake, FaWind, FaShieldAlt, FaWater, FaTools } from 'react-icons/fa'
 import AnimatedSection from '../ui/AnimatedSection'
 
 const services = [
-  { icon: FaFire, title: 'Isıtma Sistemleri', desc: 'Kombi, kalorifer ve yerden ısıtma sistemleri kurulumu ve bakımı', color: 'from-orange-500 to-red-500' },
-  { icon: FaSnowflake, title: 'Soğutma & Klima', desc: 'Klima, VRF ve merkezi soğutma sistemleri montajı ve servisi', color: 'from-blue-400 to-cyan-500' },
-  { icon: FaTools, title: 'Doğalgaz Tesisatı', desc: 'Doğalgaz iç tesisat ve dönüşüm projeleri', color: 'from-amber-500 to-orange-500' },
-  { icon: FaShieldAlt, title: 'Yangın Söndürme', desc: 'Yangın söndürme tesisatı kurulumu ve periyodik bakım hizmeti', color: 'from-red-500 to-pink-500' },
-  { icon: FaWater, title: 'Sıhhi Tesisat', desc: 'Temiz su, pis su ve yağmur suyu tesisat sistemleri', color: 'from-blue-500 to-indigo-500' },
-  { icon: FaWind, title: 'Havalandırma', desc: 'Mekanik ve tıbbi havalandırma sistemlerinin projelendirmesi', color: 'from-teal-400 to-green-500' },
+  { image: '/images/services/isitma.jpg', title: 'Isıtma Sistemleri', desc: 'Kombi, kalorifer ve yerden ısıtma sistemleri kurulumu ve bakımı' },
+  { image: '/images/services/sogutma.jpg', title: 'Soğutma & Klima', desc: 'Klima, VRF ve merkezi soğutma sistemleri montajı ve servisi' },
+  { image: '/images/services/dogalgaz.jpg', title: 'Doğalgaz Tesisatı', desc: 'Doğalgaz iç tesisat ve dönüşüm projeleri' },
+  { image: '/images/services/yangin.jpg', title: 'Yangın Söndürme', desc: 'Yangın söndürme tesisatı kurulumu ve periyodik bakım hizmeti' },
+  { image: '/images/services/sihhi-tesisat.jpg', title: 'Sıhhi Tesisat', desc: 'Temiz su, pis su ve yağmur suyu tesisat sistemleri' },
+  { image: '/images/services/havalandirma.webp', title: 'Havalandırma', desc: 'Mekanik ve tıbbi havalandırma sistemlerinin projelendirmesi' },
 ]
 
 export default function Services() {
@@ -30,13 +29,15 @@ export default function Services() {
             <AnimatedSection key={i} delay={i * 0.1}>
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-default h-full"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-default h-full"
               >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="text-white text-2xl" />
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <h3 className="text-xl font-bold text-dark mb-3">{service.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{service.desc}</p>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-dark mb-2">{service.title}</h3>
+                  <p className="text-gray-500 leading-relaxed text-sm">{service.desc}</p>
+                </div>
               </motion.div>
             </AnimatedSection>
           ))}

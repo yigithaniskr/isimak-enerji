@@ -76,7 +76,14 @@
       "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*domain*)",
       "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*Domain*)",
       "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*google*)",
-      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*Google*)"
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*Google*)",
+      "Bash(ls -lt \"/c/Users/hakan/OneDrive/Masaüstü/\"*.png)",
+      "Bash(ls -lt \"/c/Users/hakan/OneDrive/Masaüstü/\"*site*)",
+      "Bash(ls -lt \"/c/Users/hakan/Downloads/\"*[Ss]o*)",
+      "Bash(ls -lt \"/c/Users/hakan/Downloads/\"*[Kk]lima*)",
+      "Bash(ls \"/c/Users/hakan/Downloads/\"*klima*)",
+      "Bash(ls \"/c/Users/hakan/Downloads/\"*Klima*)",
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*klima*)"
     ]
   }
 }

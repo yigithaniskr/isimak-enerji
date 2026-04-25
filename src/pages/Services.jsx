@@ -69,7 +69,7 @@ const services = [
     icon: FaWind,
     title: 'Havalandırma Sistemleri',
     color: 'from-teal-400 to-green-500',
-    image: '/images/services/havalandirma.jpg',
+    image: '/images/services/havalandirma.webp',
     summary: 'Temiz ve sağlıklı hava için mekanik havalandırma çözümleri.',
     description: 'Kapalı mekanlarda temiz hava sirkülasyonu sağlamak hayati önem taşır. Mekanik havalandırma sistemleri ile iç ortam hava kalitesini en üst seviyeye çıkarıyoruz. Hastane, otel, restoran, fabrika ve ofis gibi farklı ihtiyaçlara özel çözümler üretiyoruz.',
     items: [
@@ -128,22 +128,14 @@ export default function ServicesPage() {
               {/* Visual */}
               <AnimatedSection direction={i % 2 === 0 ? 'left' : 'right'} className={i % 2 !== 0 ? 'lg:order-2' : ''}>
                 <div className="relative">
-                  <div className={`aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${service.color} flex flex-col relative`}>
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute inset-0" style={{
-                        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-                        backgroundSize: '30px 30px',
-                      }} />
-                    </div>
-                    <div className="flex-1 flex items-center justify-center relative">
-                      <motion.div
-                        animate={{ scale: [1, 1.05, 1], rotate: [0, 3, -3, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                      >
-                        <service.icon className="text-white text-[80px] md:text-[120px] opacity-90 drop-shadow-lg" />
-                      </motion.div>
-                    </div>
-                    <div className="relative bg-white/10 backdrop-blur-md p-4 border-t border-white/20">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative group">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
                       <p className="text-white font-bold text-sm md:text-lg">{service.title}</p>
                       <p className="text-white/70 text-xs md:text-sm">{service.summary}</p>
                     </div>
