@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider } from './context/AuthContext'
+import { DataProvider } from './context/DataContext'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -15,6 +16,7 @@ import ScrollToTop from './components/ui/ScrollToTop'
 export default function App() {
   return (
     <AuthProvider>
+      <DataProvider>
       <BrowserRouter>
         <ScrollToTop />
         <Toaster
@@ -37,6 +39,7 @@ export default function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </DataProvider>
     </AuthProvider>
   )
 }

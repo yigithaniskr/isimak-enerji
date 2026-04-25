@@ -65,7 +65,18 @@
       "Read(//c/Users/hakan/.git/**)",
       "Bash(taskkill //F //IM git.exe)",
       "Bash(rm -f \"/c/Users/hakan/.git/index.lock\")",
-      "Bash(find src *)"
+      "Bash(find src *)",
+      "Bash(npx vercel *)",
+      "Bash(vercel whoami *)",
+      "Bash(vercel --yes --prod -e VITE_FIREBASE_API_KEY=AIzaSyAmdAc6XSe2gAvmk1Pbtfj0SZwmWUjx2zQ -e VITE_FIREBASE_AUTH_DOMAIN=isimak-muhendislik.firebaseapp.com -e VITE_FIREBASE_PROJECT_ID=isimak-muhendislik -e VITE_FIREBASE_STORAGE_BUCKET=isimak-muhendislik.firebasestorage.app -e VITE_FIREBASE_MESSAGING_SENDER_ID=120912425642 -e VITE_FIREBASE_APP_ID=1:120912425642:web:b0107fd407770ac8b896d3 -e VITE_WHATSAPP_NUMBER=905348821572 -e VITE_CLOUDINARY_CLOUD_NAME=dkbhyorpm -e VITE_CLOUDINARY_UPLOAD_PRESET=dtfkcupd)",
+      "Bash(vercel link *)",
+      "Bash(vercel env *)",
+      "Bash(vercel --prod --scope yigithan-isikers-projects --yes)",
+      "Bash(vercel domains *)",
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*domain*)",
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*Domain*)",
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*google*)",
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*Google*)"
     ]
   }
 }

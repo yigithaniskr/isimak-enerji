@@ -1,33 +1,12 @@
-import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore'
-import { db, isFirebaseConfigured } from '../firebase/config'
+import { useData } from '../context/DataContext'
+import { addDoc, updateDoc, deleteDoc, doc, collection, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase/config'
 
 const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
 const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET
 
 export function useProjects() {
-  const [projects, setProjects] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    if (!isFirebaseConfigured) {
-      setLoading(false)
-      return
-    }
-    try {
-      const q = query(collection(db, 'projects'), orderBy('createdAt', 'desc'))
-      const unsubscribe = onSnapshot(q, (snapshot) => {
-        const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-        setProjects(items)
-        setLoading(false)
-      }, () => {
-        setLoading(false)
-      })
-      return unsubscribe
-    } catch {
-      setLoading(false)
-    }
-  }, [])
+  const { projects, loading } = useData()
 
   const uploadImage = async (file) => {
     const formData = new FormData()
@@ -47,10 +26,7 @@ export function useProjects() {
   const deleteImage = async () => {}
 
   const addProject = async (data) => {
-    return addDoc(collection(db, 'projects'), {
-      ...data,
-      createdAt: serverTimestamp(),
-    })
+    return addDoc(collection(db, 'projects'), { ...data, createdAt: serverTimestamp() })
   }
 
   const updateProject = async (id, data) => {

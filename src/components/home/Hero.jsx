@@ -36,14 +36,14 @@ export default function Hero() {
         }} />
       </div>
 
-      {/* Animated gradient orbs */}
+      {/* Animated gradient orbs - hidden on mobile for performance */}
       <motion.div
-        className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
+        className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] hidden md:block"
         animate={{ scale: [1, 1.2, 1], x: [0, 30, 0], y: [0, -20, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px]"
+        className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] hidden md:block"
         animate={{ scale: [1.2, 1, 1.2], x: [0, -20, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
