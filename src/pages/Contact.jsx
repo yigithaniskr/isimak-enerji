@@ -45,7 +45,7 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="tel:+902122129696"
+                  href="tel:+904440386"
                   className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl hover:bg-primary/5 transition-colors group"
                 >
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
@@ -53,12 +53,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-dark mb-1">Telefon</h3>
-                    <p className="text-gray-500">(0212) 212 96 96</p>
+                    <p className="text-gray-500">444 0 386</p>
                   </div>
                 </a>
 
                 <a
-                  href={`https://wa.me/905322917062?text=${encodeURIComponent('Merhaba, bilgi almak istiyorum.')}`}
+                  href={`https://wa.me/905348821572?text=${encodeURIComponent('Merhaba, bilgi almak istiyorum.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-5 bg-gray-50 rounded-2xl hover:bg-green-50 transition-colors group"
@@ -68,7 +68,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-dark mb-1">WhatsApp</h3>
-                    <p className="text-gray-500">(0532) 291 70 62</p>
+                    <p className="text-gray-500">(0534) 882 15 72</p>
                   </div>
                 </a>
 

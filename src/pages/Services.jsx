@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaFire, FaSnowflake, FaWind, FaShieldAlt, FaWater, FaTools, FaArrowRight, FaWhatsapp } from 'react-icons/fa'
 import AnimatedSection from '../components/ui/AnimatedSection'
+import { useWhatsAppUrl } from '../hooks/useWhatsAppUrl'
 
 const services = [
   {
@@ -95,6 +96,7 @@ const services = [
 ]
 
 export default function ServicesPage() {
+  const whatsappUrl = useWhatsAppUrl('Merhaba, hizmetleriniz hakkında bilgi almak istiyorum.')
   return (
     <>
       {/* Quick Nav */}
@@ -191,7 +193,7 @@ export default function ServicesPage() {
               İhtiyacınıza uygun hizmeti belirleyelim, size en doğru çözümü sunalım.
             </p>
             <a
-              href={`https://wa.me/905322917062?text=${encodeURIComponent('Merhaba, hizmetleriniz hakkında bilgi almak istiyorum.')}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-green-500/25 hover:scale-105"

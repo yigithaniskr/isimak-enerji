@@ -1,8 +1,10 @@
 import { FaWhatsapp } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { useSettings } from '../../hooks/useSettings'
 
 export default function FloatingWhatsApp() {
-  const phone = import.meta.env.VITE_WHATSAPP_NUMBER || '905322917062'
+  const { settings } = useSettings()
+  const phone = settings.whatsappNumber || '905348821572'
   const message = 'Merhaba, bilgi almak istiyorum.'
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`
 

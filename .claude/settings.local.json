@@ -64,7 +64,8 @@
       "Bash(gh repo *)",
       "Read(//c/Users/hakan/.git/**)",
       "Bash(taskkill //F //IM git.exe)",
-      "Bash(rm -f \"/c/Users/hakan/.git/index.lock\")"
+      "Bash(rm -f \"/c/Users/hakan/.git/index.lock\")",
+      "Bash(find src *)"
     ]
   }
 }

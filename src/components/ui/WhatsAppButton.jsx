@@ -1,7 +1,9 @@
 import { FaWhatsapp } from 'react-icons/fa'
+import { useSettings } from '../../hooks/useSettings'
 
 export default function WhatsAppButton({ productName = '', className = '' }) {
-  const phone = import.meta.env.VITE_WHATSAPP_NUMBER || '905322917062'
+  const { settings } = useSettings()
+  const phone = settings.whatsappNumber || '905348821572'
   const message = productName
     ? `Merhaba, "${productName}" ürünüyle ilgileniyorum. Bilgi alabilir miyim?`
     : 'Merhaba, ürünleriniz hakkında bilgi almak istiyorum.'

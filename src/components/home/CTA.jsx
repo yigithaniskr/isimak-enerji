@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaPhone } from 'react-icons/fa'
 import AnimatedSection from '../ui/AnimatedSection'
+import { useWhatsAppUrl } from '../../hooks/useWhatsAppUrl'
 
 export default function CTA() {
+  const whatsappUrl = useWhatsAppUrl('Merhaba, projem için teklif almak istiyorum.')
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-accent" />
@@ -27,7 +29,7 @@ export default function CTA() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`https://wa.me/905322917062?text=${encodeURIComponent('Merhaba, projem için teklif almak istiyorum.')}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-green-500/25 hover:scale-105"
@@ -35,7 +37,7 @@ export default function CTA() {
               <FaWhatsapp className="text-xl" /> WhatsApp ile Ulaşın
             </a>
             <a
-              href="tel:+902122129696"
+              href="tel:+904440386"
               className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 transition-all duration-300"
             >
               <FaPhone /> Hemen Arayın

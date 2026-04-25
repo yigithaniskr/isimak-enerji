@@ -25,7 +25,7 @@ export default function Privacy() {
                 <p><strong>Firma:</strong> ISIMAK Enerji Sistemleri</p>
                 <p><strong>Adres:</strong> Mecidiyeköy Mah. Mehmetçik Cd. No:8/B Şişli / İstanbul</p>
                 <p><strong>E-posta:</strong> yusuf@isimakenerji.com</p>
-                <p><strong>Telefon:</strong> (0212) 212 96 96</p>
+                <p><strong>Telefon:</strong> 444 0 386</p>
               </div>
             </div>
 

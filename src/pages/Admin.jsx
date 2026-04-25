@@ -4,7 +4,8 @@ import { useAuth } from '../context/AuthContext'
 import CategoriesAndBrands from '../components/admin/CategoriesAndBrands'
 import ProductManager from '../components/admin/ProductManager'
 import ProjectManager from '../components/admin/ProjectManager'
-import { FaBoxes, FaTags, FaSignOutAlt, FaHome, FaImages } from 'react-icons/fa'
+import SettingsManager from '../components/admin/SettingsManager'
+import { FaBoxes, FaTags, FaSignOutAlt, FaHome, FaImages, FaCog } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 export default function Admin() {
@@ -144,12 +145,23 @@ export default function Admin() {
           >
             <FaImages /> Projeler
           </button>
+          <button
+            onClick={() => setActiveTab('settings')}
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all shrink-0 ${
+              activeTab === 'settings'
+                ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
+          >
+            <FaCog /> Ayarlar
+          </button>
         </div>
 
         {/* Content */}
         {activeTab === 'catbrand' && <CategoriesAndBrands />}
         {activeTab === 'products' && <ProductManager />}
         {activeTab === 'projects' && <ProjectManager />}
+        {activeTab === 'settings' && <SettingsManager />}
       </div>
     </div>
   )

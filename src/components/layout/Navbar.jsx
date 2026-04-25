@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { HiOutlineMenuAlt3, HiX, HiChevronDown } from 'react-icons/hi'
 import { FaWhatsapp, FaInstagram, FaPhone } from 'react-icons/fa'
 import { useCategories } from '../../hooks/useCategories'
+import { useSettings } from '../../hooks/useSettings'
+import { useWhatsAppUrl } from '../../hooks/useWhatsAppUrl'
 
 const navLinks = [
   { name: 'Ana Sayfa', path: '/' },
@@ -20,6 +22,11 @@ export default function Navbar() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
   const location = useLocation()
   const { categories } = useCategories()
+  const { settings } = useSettings()
+  const whatsappUrl = useWhatsAppUrl()
+  const waPhone = settings.whatsappNumber || '905348821572'
+  const waLocal = waPhone.startsWith('90') ? waPhone.slice(2) : waPhone
+  const waDisplay = `(0${waLocal.slice(0, 3)}) ${waLocal.slice(3, 6)} ${waLocal.slice(6, 8)} ${waLocal.slice(8)}`
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -39,11 +46,11 @@ export default function Navbar() {
       <div className="bg-primary-dark text-white text-sm py-2 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
-            <a href="tel:+902122129696" className="flex items-center gap-1 hover:text-accent-light transition-colors">
-              <FaPhone className="text-xs" /> (0212) 212 96 96
+            <a href="tel:+904440386" className="flex items-center gap-1 hover:text-accent-light transition-colors">
+              <FaPhone className="text-xs" /> 444 0 386
             </a>
-            <a href="tel:+905322917062" className="flex items-center gap-1 hover:text-accent-light transition-colors">
-              <FaWhatsapp /> (0532) 291 70 62
+            <a href={`tel:+${waPhone}`} className="flex items-center gap-1 hover:text-accent-light transition-colors">
+              <FaWhatsapp /> {waDisplay}
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -125,7 +132,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <a
-              href={`https://wa.me/905322917062?text=${encodeURIComponent('Merhaba, bilgi almak istiyorum.')}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
@@ -242,11 +249,11 @@ export default function Navbar() {
 
               {/* Bottom Actions */}
               <div className="p-6 space-y-3 border-t border-white/10">
-                <a href="tel:+905322917062" className="flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-medium w-full">
-                  <FaPhone /> (0532) 291 70 62
+                <a href={`tel:+${waPhone}`} className="flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-medium w-full">
+                  <FaPhone /> {waDisplay}
                 </a>
                 <a
-                  href={`https://wa.me/905322917062?text=${encodeURIComponent('Merhaba, bilgi almak istiyorum.')}`}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-green-500 text-white py-3.5 rounded-xl font-medium w-full"

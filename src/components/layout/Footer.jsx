@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
 import { FaInstagram, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaEnvelope, FaClock } from 'react-icons/fa'
+import { useSettings } from '../../hooks/useSettings'
 
 export default function Footer() {
+  const { settings } = useSettings()
+  const phone = settings.whatsappNumber || '905348821572'
+  const local = phone.startsWith('90') ? phone.slice(2) : phone
+  const displayPhone = `(0${local.slice(0, 3)}) ${local.slice(3, 6)} ${local.slice(6, 8)} ${local.slice(8)}`
+
   return (
     <footer className="bg-dark text-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
@@ -70,15 +76,15 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+902122129696" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
+                <a href="tel:+904440386" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
                   <FaPhone className="shrink-0" />
-                  (0212) 212 96 96
+                  444 0 386
                 </a>
               </li>
               <li>
-                <a href="tel:+905322917062" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
+                <a href={`tel:+${phone}`} className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm">
                   <FaWhatsapp className="shrink-0" />
-                  (0532) 291 70 62
+                  {displayPhone}
                 </a>
               </li>
               <li>
@@ -98,7 +104,7 @@ export default function Footer() {
               <a href="https://instagram.com/isimak_enerji" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
                 <FaInstagram />
               </a>
-              <a href={`https://wa.me/905322917062`} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors">
+              <a href={`https://wa.me/${phone}`} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors">
                 <FaWhatsapp />
               </a>
             </div>
