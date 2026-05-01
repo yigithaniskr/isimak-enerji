@@ -83,7 +83,10 @@
       "Bash(ls -lt \"/c/Users/hakan/Downloads/\"*[Kk]lima*)",
       "Bash(ls \"/c/Users/hakan/Downloads/\"*klima*)",
       "Bash(ls \"/c/Users/hakan/Downloads/\"*Klima*)",
-      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*klima*)"
+      "Bash(ls \"/c/Users/hakan/OneDrive/Masaüstü/\"*klima*)",
+      "Bash(curl -s -X POST \"https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAmdAc6XSe2gAvmk1Pbtfj0SZwmWUjx2zQ\" -H \"Content-Type: application/json\" -d \"{\\\\\"localId\\\\\":\\\\\"u4HyQkZ80FNVgWsY0j6M4qFiULO2\\\\\",\\\\\"email\\\\\":\\\\\"admin@isimakenerji.com\\\\\"}\")",
+      "Bash(curl -s -X POST \"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAmdAc6XSe2gAvmk1Pbtfj0SZwmWUjx2zQ\" -H \"Content-Type: application/json\" -d '{\"email\":\"admin@isimakmuhendislik.com\",\"password\":\"adminEnerji1\",\"returnSecureToken\":true}')",
+      "Bash(ls -lt \"/c/Users/hakan/OneDrive/Masaüstü/\"*google*)"
     ]
   }
 }

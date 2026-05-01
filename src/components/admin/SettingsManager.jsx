@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { FaSave, FaWhatsapp, FaLock, FaEnvelope } from 'react-icons/fa'
-import { updatePassword, updateEmail, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth'
+import { FaSave, FaWhatsapp, FaLock } from 'react-icons/fa'
+import { updatePassword, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth'
 import { useSettings } from '../../hooks/useSettings'
 import { useAuth } from '../../context/AuthContext'
 import toast from 'react-hot-toast'
@@ -17,10 +17,6 @@ export default function SettingsManager() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [changingPassword, setChangingPassword] = useState(false)
 
-  // E-posta değiştirme
-  const [newEmail, setNewEmail] = useState('')
-  const [emailPassword, setEmailPassword] = useState('')
-  const [changingEmail, setChangingEmail] = useState(false)
 
   useEffect(() => {
     if (settings.whatsappNumber) {
@@ -94,36 +90,6 @@ export default function SettingsManager() {
     setChangingPassword(false)
   }
 
-  const handleEmailChange = async () => {
-    if (!emailPassword) {
-      toast.error('Mevcut şifrenizi giriniz')
-      return
-    }
-    if (!newEmail || !newEmail.includes('@')) {
-      toast.error('Geçerli bir e-posta giriniz')
-      return
-    }
-
-    setChangingEmail(true)
-    try {
-      const credential = EmailAuthProvider.credential(user.email, emailPassword)
-      await reauthenticateWithCredential(user, credential)
-      await updateEmail(user, newEmail)
-      toast.success('E-posta başarıyla güncellendi')
-      setNewEmail('')
-      setEmailPassword('')
-    } catch (err) {
-      if (err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        toast.error('Mevcut şifre yanlış')
-      } else if (err.code === 'auth/email-already-in-use') {
-        toast.error('Bu e-posta zaten kullanımda')
-      } else {
-        toast.error('E-posta güncellenemedi')
-      }
-    }
-    setChangingEmail(false)
-  }
-
   if (loading) return <div className="text-center py-10 text-gray-500">Yükleniyor...</div>
 
   return (
@@ -165,42 +131,6 @@ export default function SettingsManager() {
               <FaSave /> {saving ? 'Kaydediliyor...' : 'Kaydet'}
             </button>
           </div>
-        </div>
-      </div>
-
-      {/* E-posta Değiştirme */}
-      <div className="bg-white rounded-xl p-6 shadow-sm space-y-4">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-            <FaEnvelope className="text-primary text-xl" />
-          </div>
-          <div>
-            <h3 className="font-bold text-dark">Giriş E-postası</h3>
-            <p className="text-xs text-gray-400">Mevcut: <span className="font-medium text-gray-600">{user?.email}</span></p>
-          </div>
-        </div>
-        <div className="space-y-3">
-          <input
-            type="email"
-            value={newEmail}
-            onChange={(e) => setNewEmail(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-            placeholder="Yeni e-posta adresi"
-          />
-          <input
-            type="password"
-            value={emailPassword}
-            onChange={(e) => setEmailPassword(e.target.value)}
-            className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
-            placeholder="Mevcut şifreniz (doğrulama için)"
-          />
-          <button
-            onClick={handleEmailChange}
-            disabled={changingEmail}
-            className="flex items-center gap-2 bg-primary hover:bg-primary-light text-white px-5 py-2.5 rounded-xl font-medium transition-all disabled:opacity-50"
-          >
-            <FaSave /> {changingEmail ? 'Güncelleniyor...' : 'E-postayı Güncelle'}
-          </button>
         </div>
       </div>
 
